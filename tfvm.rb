@@ -5,20 +5,20 @@
 class Tfvm < Formula
   desc "A Terraform Version Manager written in Go"
   homepage "https://github.com/ethanhassett/tfvm/tree/main"
-  version "1.2.1"
+  version "1.3.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/ethanhassett/tfvm-test/releases/download/v1.2.1/tfvm_1.2.1_darwin_amd64.tar.gz"
-      sha256 "06f83773f008d3952d8a5e4c925005f905dba277468c5d5fa0e9195521800dbe"
+    if Hardware::CPU.arm?
+      url "https://github.com/ethanhassett/tfvm/releases/download/v1.3.0/tfvm_1.3.0_darwin_arm64.tar.gz"
+      sha256 "17e59a8427df9f43da08c4d88381cf9ab2e7fe03d956829c9faa0d04e5368733"
 
       def install
         bin.install "tfvm"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/ethanhassett/tfvm-test/releases/download/v1.2.1/tfvm_1.2.1_darwin_arm64.tar.gz"
-      sha256 "fac6b6e9c958be2faa7d92375eaceae542d11138940e39ac6ec09b37e2031ff7"
+    if Hardware::CPU.intel?
+      url "https://github.com/ethanhassett/tfvm/releases/download/v1.3.0/tfvm_1.3.0_darwin_amd64.tar.gz"
+      sha256 "bcad74b6dae368bf9f612ab308924600e9ae532eda8f33f9889dc3505083bace"
 
       def install
         bin.install "tfvm"
@@ -27,25 +27,25 @@ class Tfvm < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ethanhassett/tfvm-test/releases/download/v1.2.1/tfvm_1.2.1_linux_arm64.tar.gz"
-      sha256 "8c93af3359bda4cc22a87ba129b78ba229248808c05d392f5c9ffb61de08908b"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/ethanhassett/tfvm/releases/download/v1.3.0/tfvm_1.3.0_linux_armv6.tar.gz"
+      sha256 "6a958f441e094a6baf6ed0740dd154d3a58ccbd295f716708a2b642106ec1cb1"
 
       def install
         bin.install "tfvm"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/ethanhassett/tfvm-test/releases/download/v1.2.1/tfvm_1.2.1_linux_amd64.tar.gz"
-      sha256 "db97e8d392fbf8b6386adc01391c52d0ce79a6d61699b5e6d83a914df85fa08d"
+      url "https://github.com/ethanhassett/tfvm/releases/download/v1.3.0/tfvm_1.3.0_linux_amd64.tar.gz"
+      sha256 "a46fef3b77274751aff7c7660fcc58a19be04e57c1ebb69bc894e8906caee7d0"
 
       def install
         bin.install "tfvm"
       end
     end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/ethanhassett/tfvm-test/releases/download/v1.2.1/tfvm_1.2.1_linux_armv6.tar.gz"
-      sha256 "8a234d9b20a4debc526d86f50830a140cf452ea4f210522281bebed3f7f90b47"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/ethanhassett/tfvm/releases/download/v1.3.0/tfvm_1.3.0_linux_arm64.tar.gz"
+      sha256 "1358962454f71e99cfe67a6797961acc827971a8f4c4c571ab2b858b24fc86a2"
 
       def install
         bin.install "tfvm"
