@@ -8,17 +8,17 @@ class Tfvm < Formula
   version "1.3.2"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_darwin_arm64.tar.gz"
-      sha256 "6941954fea7122349ef37a2b5258a87df9f02136246754b7a0b57433b12bf0a1"
+    if Hardware::CPU.intel?
+      url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_darwin_amd64.tar.gz"
+      sha256 "c9838b9415bfcc6f73d784d747a99e3a70b6cfa29ed756db4a60b64a441e9ee1"
 
       def install
         bin.install "tfvm"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_darwin_amd64.tar.gz"
-      sha256 "aa72c6e7aa2f4c9d596160eed343b99b4ad01cb240d662221be563dc61cc71bc"
+    if Hardware::CPU.arm?
+      url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_darwin_arm64.tar.gz"
+      sha256 "1bde1bccd24f1b01b17eaad568a264d351976c3416b07586e82a9e3e7bfca1c5"
 
       def install
         bin.install "tfvm"
@@ -29,7 +29,7 @@ class Tfvm < Formula
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_linux_amd64.tar.gz"
-      sha256 "331a3fadf676291e43792ef3f23b0f7fb88db600fb4b38c7c64f61a0d8ab9017"
+      sha256 "5e60097d02b749bd1df366989d9fe83282aaf172c711a2464380515c7c65d292"
 
       def install
         bin.install "tfvm"
@@ -37,7 +37,7 @@ class Tfvm < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_linux_arm64.tar.gz"
-      sha256 "86c3700edc332979a26e7c3955846cceb7c86726fb3a659118c150dd1e379c4e"
+      sha256 "14df083dce9354acf3dcf9e81e966c4d6381bd3339acc662b828d3ac456ec668"
 
       def install
         bin.install "tfvm"
