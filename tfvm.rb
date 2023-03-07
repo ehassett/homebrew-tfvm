@@ -5,20 +5,20 @@
 class Tfvm < Formula
   desc "A Terraform Version Manager written in Go"
   homepage "https://github.com/ehassett/tfvm/tree/master"
-  version "1.3.2"
+  version "2.0.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_darwin_arm64.tar.gz"
-      sha256 "b9e18ed4a1408e18a57b74fbbcf55abff9635fd7e9f45df6c5094a91286816c6"
+    if Hardware::CPU.intel?
+      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_darwin_amd64.tar.gz"
+      sha256 "90ea4d6c62fa5be767983c7019a7972cf011521ef15f7e167a069697dc25acac"
 
       def install
         bin.install "tfvm"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_darwin_amd64.tar.gz"
-      sha256 "8bdcf78cc0ea779b4a6d1026a46e47586fcb61657e103f7044f205324dd17d3d"
+    if Hardware::CPU.arm?
+      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_darwin_arm64.tar.gz"
+      sha256 "75307c74d2747f150319c2e04ba3d78be0b227e159acdd17e59bfd564bdaaddc"
 
       def install
         bin.install "tfvm"
@@ -27,17 +27,17 @@ class Tfvm < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_linux_amd64.tar.gz"
-      sha256 "f95be129b65fedeb0bc45c393905c9ca7180eb352607b4d5e3f21eff690ccf17"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_linux_arm64.tar.gz"
+      sha256 "1e40b3700eacccf1811684e6499cde06ddd9c0086d12dbf94f3f99473022732b"
 
       def install
         bin.install "tfvm"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ehassett/tfvm/releases/download/v1.3.2/tfvm_1.3.2_linux_arm64.tar.gz"
-      sha256 "e0e5eb291e63a8c14200a23aeba9db636e8ce93622cae71d01b027228af38df7"
+    if Hardware::CPU.intel?
+      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_linux_amd64.tar.gz"
+      sha256 "5d67a29001d8293b0526bfd3e4ed0f8b0f7d66d42087293fcdedbee5f5c4e0fc"
 
       def install
         bin.install "tfvm"
