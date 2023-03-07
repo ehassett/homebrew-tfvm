@@ -8,17 +8,17 @@ class Tfvm < Formula
   version "2.0.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_darwin_amd64.tar.gz"
-      sha256 "90ea4d6c62fa5be767983c7019a7972cf011521ef15f7e167a069697dc25acac"
+    if Hardware::CPU.arm?
+      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_darwin_arm64.tar.gz"
+      sha256 "25ae53dc168751c5c74888a45cf44c3dcddc026c8de2d4280f659d50c702ab21"
 
       def install
         bin.install "tfvm"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_darwin_arm64.tar.gz"
-      sha256 "75307c74d2747f150319c2e04ba3d78be0b227e159acdd17e59bfd564bdaaddc"
+    if Hardware::CPU.intel?
+      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_darwin_amd64.tar.gz"
+      sha256 "9c2ceda61d193c1660232bbaa1d84518d89ebaefbb3cd6c22a67342fbd72de27"
 
       def install
         bin.install "tfvm"
@@ -27,17 +27,17 @@ class Tfvm < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_linux_arm64.tar.gz"
-      sha256 "1e40b3700eacccf1811684e6499cde06ddd9c0086d12dbf94f3f99473022732b"
+    if Hardware::CPU.intel?
+      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_linux_amd64.tar.gz"
+      sha256 "36ca29cc5cb0a4807be9821275e77a6c86c40fcbc0c97b5a65d310df6bed249e"
 
       def install
         bin.install "tfvm"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_linux_amd64.tar.gz"
-      sha256 "5d67a29001d8293b0526bfd3e4ed0f8b0f7d66d42087293fcdedbee5f5c4e0fc"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/ehassett/tfvm/releases/download/v2.0.0/tfvm_2.0.0_linux_arm64.tar.gz"
+      sha256 "fae349cbef4fee47db83846ced51bbee3de4a5483c9d953075b7e7625416883a"
 
       def install
         bin.install "tfvm"
